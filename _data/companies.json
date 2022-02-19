@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Hike Adventures India",
+        "description": "Hike Adventures India, provides wide range of trek and tour options in the northen part of India",
+        "website": "https://hike-adventures-india.com",
+        "phone": "+91 9222057941",
+        "email": "adventures@hikeindia.com",
+        "address": "VPO Bhawarna, Tehsil, Bhawarna, Himachal Pradesh 176083"
+    },
+    {
+        "name": "Himalayan Treks",
+        "description": "Himalayan Treks India has one goal, to plan your trek/travelling effectively so as to explore the beauty of Himalayas in the best possible way and to make it a life long experience",
+        "website": "https://himalayan-treks.com",
+        "phone": "+91 8230936901",
+        "email": "treks@himalayan.com",
+        "address": "VPO.Kareri, Dharamshala, Himachal Pradesh 176216"
+    },
+    {
+        "name": "Mountain Adventures India",
+        "description": "Is thriving on adventures, really gives you that kick. Mountain Advantures India, brings you the most awaited packages of tour and treks on Himalayas. Pack your stuffs, and come with us for great treak and travel experience",
+        "website": "https://mountain-adventures-india.com",
+        "phone": "+91 7222857842",
+        "email": "booktrek@mountainadventures.com",
+        "address": "Head office,Village Swala,Post office Naganpatt,Tehsil Dharamshala, Distt, Kangra, Himachal Pradesh 176209"
+    },
+    {
+        "name": "Dreamchaser Tour and Trek",
+        "description": "Hiking is good for health and mind too, especially in this enviroment where nature is getting forgotten. With Dreamchaser we bring the best in class eco environment travel and tours, to bring you most closest to the nature",
+        "website": "https://dreamchaser-tour-trek.com",
+        "phone": "+91 9736057941",
+        "email": "adventures@dreamchaser.com",
+        "address": "Gate no 2, G-12 Third Floor, Shyam Park , Nawada above Bharti Acedmy, near Nawada Metro Station, New Delhi, Delhi 110059"
+    },
+    {
+        "name": "Triund Treks and Tour",
+        "description": "Triund Treks and Tour, provides wide range of trek and tour options in the northen part of India",
+        "website": "https://triund-treks-tour.com",
+        "phone": "+91 6228957873",
+        "email": "trek@triund.com",
+        "address": "Sector 10A Rd, near kadipur chowk, IOC Colony, Sector 10A, Gurugram, Haryana 122001"
+    }
+]
