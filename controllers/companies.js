@@ -4,25 +4,39 @@ const Company = require('../models/Company')
 // @route     GET /api/v1/companies
 // @access    Public
 exports.getCompanies = async (req, res, next) => {
-  const companies = await Company.find({});
+  try {
+    const companies = await Company.find({});
 
-  res.status(200).json({
-    success: true,
-    count: companies.length,
-    data: companies
-  })
+    res.status(200).json({
+      success: true,
+      count: companies.length,
+      data: companies
+    })
+  } catch (err) {
+    console.log(err)
+  }
 };
 
 // @desc      Get Single Company
 // @route     GET /api/v1/companies/:id
 // @access    Public
 exports.getCompany = async (req, res, next) => {
-  const company = await Company.findById(req.params.id);
+  try {
+    const company = await Company.findById(req.params.id);
 
-  res.status(200).json({
-    success: true,
-    data: company
-  })
+    if (!company) {
+      return res.status(400).json({
+        success: false
+      })
+    }
+
+    res.status(200).json({
+      success: true,
+      data: company
+    })
+  } catch (err) {
+    next(err)
+  }
 };
 
 // @desc      Create Company
@@ -30,37 +44,49 @@ exports.getCompany = async (req, res, next) => {
 // @access    Private
 exports.addCompany = async (req, res, next) => {
   console.log(req.body)
-  const company = await Company.create(req.body);
+  try {
+    const company = await Company.create(req.body);
 
-  res.status(200).json({
-    success: true,
-    data: company
-  })
+    res.status(200).json({
+      success: true,
+      data: company
+    })
+  } catch (err) {
+    console.log(err)
+  }
 };
 
 // @desc      Update Company
 // @route     PUT /api/v1/companies/:id
 // @access    Private
 exports.updateCompany = async (req, res, next) => {
-  const company = await Company.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true
-  });
+  try {
+    const company = await Company.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
 
-  res.status(200).json({
-    success: true,
-    data: company
-  })
+    res.status(200).json({
+      success: true,
+      data: company
+    })
+  } catch (err) {
+    console.log(err)
+  }
 };
 
 // @desc      Delete Company
 // @route     DELETE /api/v1/companies/:id
 // @access    Private
 exports.deleteCompany = async (req, res, next) => {
-  await Company.deleteOne({ "_id": req.params.id });
+  try {
+    await Company.deleteOne({ "_id": req.params.id });
 
-  res.status(200).json({
-    success: true,
-    data: {}
-  })
+    res.status(200).json({
+      success: true,
+      data: {}
+    })
+  } catch (err) {
+    console.log(err)
+  }
 };
