@@ -3,6 +3,7 @@ const colors = require('colors')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const connectDB = require('./config/db')
+const errorHandler = require('./middleware/error')
 
 // Load env vars
 dotenv.config({ path: './config/config.env' })
@@ -29,12 +30,7 @@ const PORT = process.env.PORT || 5000;
 // Mount routers
 app.use('/api/v1/companies', companies)
 
-// app.get('/', (req, res) => {
-//     res.status(200).json({
-//         title: 'Landing page',
-//         msg: 'Hello there json, from express server'
-//     })
-// })
+app.use(errorHandler)
 
 const server = app.listen((PORT), () => {
     console.log(`Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold);
