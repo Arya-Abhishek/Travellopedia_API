@@ -1,5 +1,6 @@
 [
   {
+    "_id": "6214ecd4d8e69893a789629b",
     "title": "Kasol Trip and Trek to Kheerganga",
     "description": "Kheerganga is one of the unique Himalayan treks in which you are rewarded with natural hot water springs on reaching the summit at almost 10,000 feet. This trek takes you deep into the Parvati Valley by walking alongside the babbling Beas River, ascending through pine and oak forests and traversing the verdant gorge. On the way to the top, you will come across many beautiful waterfalls and a Shiva temple. The snowy Himalayan peaks will accompany you throughout the day. The one-of-a-kind experience of relaxing in the vistas of snow-capped peaks will remain with you forever as memories. Be it a memorable walk along the sparkling Parvati river or savoring Israeli food at colorful cafes, everything here would be a little more unique.",
     "maximumAltitude": 9600,
@@ -9,6 +10,7 @@
     "difficulty": "Moderate"
   },
   {
+    "_id": "6214ecd4d8e69893a789629c",
     "title": "Nag Tibba Trek, Uttarakhand",
     "description": "Nag Tibba is located at an altitude of 3,022 meters that makes it the highest peak in the lower Himalayan region of Uttarakhand. The trek has got its name from 'Nag Devta' and offers an ideal weekend getaway destination for adventure lovers. NagTibba trek is a wonderful delight for adventure lovers from all over the world since it showcases the best serenity and exciting trekking routes through thick jungles and meadows. During the Nag Tibba trekking, you'll witness beautiful flora and fauna, lush green mountains, and dense forests that will make you fall in love with its beauty.",
     "maximumAltitude": 9910,
@@ -18,6 +20,7 @@
     "difficulty": "Moderate"
   },
   {
+    "_id": "6214ecd4d8e69893a789629d",
     "title": "Everest Base Camp Trek, Nepal",
     "description": "They call it the \"steps to heaven\" for a good reason. To go to the base camp of the highest mountain in the world is on every mountain lover's bucket list. You will look at the scenery that's so breathtakingly stunning and unlike any mountainous terrain that you have ever seen before - changing from lush green farmland, dense forest, and glistening blue fast-flowing rivers to the barren land and glacial pools the higher you climb - that you realize it was a good decision. Here you are, conquering Everest like a warrior. When you'll reach the top of the final climb, stumbling over loose rocks and onto a canvas of white, all you will do is sit and admire what had become one of your greatest achievements.",
     "maximumAltitude": 18513,
@@ -26,8 +29,9 @@
     "cost": 36000,
     "difficulty": "Extreme",
     "rewardCertificate": true
-  }, 
+  },
   {
+    "_id": "6214ecd4d8e69893a789629e",
     "title": "Premium Chadar Trek, Ladakh - Frozen River Trek",
     "description": "Trekking, for some, is an escape from the ordinary and for others, it is an adventure to conquer. To walk on the path carved out in the midst of naked mountains with the clear blue skies over your head, to breathe its complexities, to sense the soothing touch of the chilly breeze on your face, and to witness the incredible frozen waterfall is an experience one cannot put into words. One such experience is the glorious and equally fascinating, Chadar Trek.",
     "maximumAltitude": 11123,
@@ -38,6 +42,7 @@
     "rewardCertificate": true
   },
   {
+    "_id": "6214ecd4d8e69893a789629f",
     "title": "Kedarkantha Trek, Uttarakhand",
     "description": "Kedarkantha is such a popular winter trek that it would be apt to entitle it as the Queen of Winter Treks. Knee-deep snow in winters, mesmerizing view from the top, and the beautiful and easy trails make it popular among trekkers. The ‘easy on endurance’ trail goes through the thick pine forests of Govind National Park. The views from the top are worth climbing to an altitude of 12,500 ft. Kedarkantha trek will give you an inimitable view of the cosmic sky, lush meadows, snow paths, charming villages, scented pine forest, sky-knocking peaks, tranquil rivers, and some mythological story whispers.",
     "maximumAltitude": 4950,
@@ -45,7 +50,9 @@
     "distance": 20,
     "cost": 36000,
     "difficulty": "Moderate"
-  },{
+  },
+  {
+    "_id": "6214ecd4d8e69893a78962a0",
     "title": "Goechala Trek, Sikkim",
     "description": "GoechaLa trek is nestled at a height of 16,207 ft, with a closer look at the third-highest peak-Mt. Kanchenjunga. It is a dream and desire for hundreds of adventure lovers. Bounded by the mesmerizing flora and fauna, which are so vibrant and colorful to cheer up one's mood. The GoechaLa pass trek is a bundle of big summits, making it an absolute adventure to embark on. The trail link with the famous Kanchenjunga National Park, where one can witness the true nature, enough to revitalize your senses. To watch the mountains clearly, April and May are the ideal months. Since the sky is completely clear during this time and the sunset-sunrise views can be captured.",
     "maximumAltitude": 16207,
@@ -54,7 +61,9 @@
     "cost": 15200,
     "difficulty": "Hard",
     "rewardCertificate": true
-  },{
+  },
+  {
+    "_id": "6214ecd4d8e69893a78962a1",
     "title": "Har Ki Dun Trek, Uttarakhand",
     "description": "Nestled cozily on the hinges of the Gharwal Himalayas, Har ki dun trek is one of the most popular treks among a lot of trekkers and nature enthusiasts. This exhilarating trek is also known as a hanging valley because of its cradle-shaped mountains. It is also known as the winter-wonderland as in winter the trails are totally covered with snow and the sun throw its rays within the clouds. The Har ki Dun trekking is embraced with soothing sights of deodar trees that will definitely enchant your soul with the pine smell.",
     "maximumAltitude": 11675,
@@ -64,6 +73,7 @@
     "difficulty": "Moderate"
   },
   {
+    "_id": "6214ecd4d8e69893a78962a2",
     "title": "Brahmatal Trek, Uttarakhand",
     "description": "Another jewel of the Himalayas which is untouched by trekkers around the world is the Brahmatal trek, which is devoted to Lord Brahma. It is beautifully positioned amidst the Himalayas and covered with blankets of snow. The trail allows you to see the centuries-old forest of Oak and Rhododendron. Walking in meadows besides Brahamatal Ridge you can see many sites of Roopkund Trek. A glance at the Garhwal Mountains in the distance on a clear day will totally melt your heart.",
     "maximumAltitude": 12150,
