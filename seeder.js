@@ -7,6 +7,7 @@ dotenv.config({ path: './config/config.env' });
 
 // Load Models
 const Company = require('./models/Company');
+const Tour = require('./models/Tour');
 
 // Connect to db
 mongoose
@@ -20,11 +21,13 @@ mongoose
 
 // Read JSON files
 const companies = JSON.parse(fs.readFileSync(`${__dirname}/_data/companies.json`, 'utf-8'))
+const tours = JSON.parse(fs.readFileSync(`${__dirname}/_data/tours.json`, 'utf-8'))
 
 // Import data into DB
 const importData = async () => {
   try {
     await Company.create(companies);
+    await Tour.create(tours);
     console.log('Data imported successfully...'.green.inverse)
     process.exit()
   } catch (err) {
@@ -36,6 +39,7 @@ const importData = async () => {
 const deleteData = async () => {
   try {
     await Company.deleteMany();
+    await Tour.deleteMany();
     console.log('Data deleted successfully...'.red.inverse)
     process.exit()
   } catch (err) {
