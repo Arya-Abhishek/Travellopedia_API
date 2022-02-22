@@ -5,10 +5,13 @@ const {
   getCompany,
   updateCompany,
   addCompany,
-  deleteCompany
+  deleteCompany,
+  getCompaniesWithinRadius
 } = require('../controllers/companies')
 
 const router = express.Router();
+
+router.route('/radius/:zipcode/:distance').get(getCompaniesWithinRadius);
 
 router
   .route('/')
