@@ -6,12 +6,15 @@ const {
   updateCompany,
   addCompany,
   deleteCompany,
-  getCompaniesWithinRadius
+  getCompaniesWithinRadius,
+  companyPhotoUpload
 } = require('../controllers/companies')
 
 const router = express.Router();
 
 router.route('/radius/:zipcode/:distance').get(getCompaniesWithinRadius);
+
+router.route('/:id/photo').put(companyPhotoUpload);
 
 router
   .route('/')

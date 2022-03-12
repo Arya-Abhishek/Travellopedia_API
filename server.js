@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
+const fileupload = require('express-fileupload');
 
 // Load env vars
 dotenv.config({ path: "./config/config.env" });
@@ -17,6 +18,9 @@ const tours = require("./routes/tours");
 
 // Initialize app with express
 const app = express();
+
+// file uploading
+app.use(fileupload())
 
 // Body Parser
 app.use(express.json());

@@ -2,6 +2,7 @@ const Company = require('../models/Company')
 const ErrorResponse = require('../utils/errorResponse')
 const asyncHandler = require('../middleware/async')
 const geocoder = require('../utils/geocode')
+const path = require('path')
 
 // @desc      Get all companies
 // @route     GET /api/v1/companies
@@ -103,3 +104,56 @@ exports.getCompaniesWithinRadius = asyncHandler(async (req, res, next) => {
     data: companies
   })
 });
+
+// @desc      Upload Company photo
+// @route     PUT /api/v1/companies/:id/photo
+// @access    Private
+exports.companyPhotoUpload = asyncHandler(async (req, res, next) => {
+  
+  const company = await Company.findById(req.params.id);
+
+  if (!company) {
+    return next(
+      new ErrorResponse(`Company Not Found with the id of ${req.params.id}`, 404)
+    )
+  }
+
+  if (!req.files) {
+    return next(new ErrorResponse(`Please upload a file`, 400))
+  }
+
+  //  Check the sent file is of image type
+  const file = req.files.companyImage;
+
+  console.log(file);
+
+  if(!file.mimetype.startsWith('image')) {
+    return next(
+      new ErrorResponse(`Please upload an image file either jpg, png, gif`, 400)
+    )
+  }
+
+  // Check the file size before uploading
+  if (file.size > process.env.MAX_FILE_UPLOAD) {
+    return next(
+      new ErrorResponse(`Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`, 400)
+    )
+  }
+
+  // Create custom filename
+  file.name = `Photo_${company._id}${path.parse(file.name).ext}`;
+
+  file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async(err) => {
+    if (err) {
+      console.log(err);
+      return next(new ErrorResponse(`Problem with file upload`, 500));
+    }
+
+    await Company.findByIdAndUpdate(req.params.id, { photo: file.name });
+
+    res.status(200).json({
+      success: true,
+      data: file.name
+    });
+  })
+})
