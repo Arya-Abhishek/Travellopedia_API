@@ -8,17 +8,35 @@ const path = require('path')
 // @route     GET /api/v1/companies
 // @access    Public
 exports.getCompanies = asyncHandler(async (req, res, next) => {
-  // console.log req params
-  console.log(req.query)
-  let queryString = JSON.stringify(req.query)
+
+  const reqQuery = {...req.query}
+
+  const removeFields = ['select'];
+
+  removeFields.forEach(param => delete reqQuery[param]);
+
+  let queryString = JSON.stringify(reqQuery)
 
   const regex = /\b(gt|gte|lt|lte|in)\b/g;
 
   queryString = queryString.replace(regex, match => `$${match}`)
 
-  console.log(queryString);
-
+  // Get resource
   let query = Company.find(JSON.parse(queryString))
+
+  // select fields
+  if (req.query.select) {
+    const fields = req.query.select.split(',').join(' ')
+    query = query.select(fields)
+  }
+
+  // sort 
+  if (req.query.sort) {
+    const sortBy = req.query.sort.split(',').join(' ');
+    query = query.sort(sortBy)
+  } else {
+    query = query.sort('-createdAt')
+  }
 
   const companies = await query;
 
@@ -160,7 +178,7 @@ exports.companyPhotoUpload = asyncHandler(async (req, res, next) => {
       console.log(err);
       return next(new ErrorResponse(`Problem with file upload`, 500));
     }
-
+    console.log(file.name);
     await Company.findByIdAndUpdate(req.params.id, { photo: file.name });
 
     res.status(200).json({
