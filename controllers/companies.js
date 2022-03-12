@@ -8,7 +8,19 @@ const path = require('path')
 // @route     GET /api/v1/companies
 // @access    Public
 exports.getCompanies = asyncHandler(async (req, res, next) => {
-  const companies = await Company.find({});
+  // console.log req params
+  console.log(req.query)
+  let queryString = JSON.stringify(req.query)
+
+  const regex = /\b(gt|gte|lt|lte|in)\b/g;
+
+  queryString = queryString.replace(regex, match => `$${match}`)
+
+  console.log(queryString);
+
+  let query = Company.find(JSON.parse(queryString))
+
+  const companies = await query;
 
   res.status(200).json({
     success: true,
