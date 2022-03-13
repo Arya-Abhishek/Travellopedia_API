@@ -15,6 +15,7 @@ connectDB();
 // Load Route files
 const companies = require("./routes/companies");
 const tours = require("./routes/tours");
+const auth = require("./routes/auth")
 
 // Initialize app with express
 const app = express();
@@ -35,6 +36,7 @@ const PORT = process.env.PORT || 5000;
 // Mount routers
 app.use("/api/v1/companies", companies);
 app.use("/api/v1/tours", tours);
+app.use("/api/v1/auth", auth);
 
 app.use(errorHandler);
 
