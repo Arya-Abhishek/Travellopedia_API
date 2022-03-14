@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
 const fileupload = require('express-fileupload');
+const cookieParser = require('cookie-parser')
 
 // Load env vars
 dotenv.config({ path: "./config/config.env" });
@@ -19,6 +20,9 @@ const auth = require("./routes/auth")
 
 // Initialize app with express
 const app = express();
+
+// Cookie parser
+app.use(cookieParser())
 
 // file uploading
 app.use(fileupload())
