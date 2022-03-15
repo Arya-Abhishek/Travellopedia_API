@@ -7,7 +7,7 @@ const asyncHandler = require("../middleware/async");
 // @access    Public
 exports.register = asyncHandler(async (req, res, next) => {
   const { name, email, password, role } = req.body;
-
+  console.log(req.body);
   const user = await User.create({
     name,
     email,
@@ -42,6 +42,23 @@ exports.login = asyncHandler(async( req, res, next) => {
   if (!isMatch) {
     return next(new ErrorResponse('Invalid credentials', 401))
   }
+
+  sendTokenResponse(user, 200, res)
+})
+
+// @desc      Update User Password
+// @route     PUT /api/v1/auth/updatePassword
+// @access    Private
+exports.updatePassword = asyncHandler(async(req, res, next) => {
+  const user = await User.findById(req.user.id).select('password');
+
+  // checking current password with the hashed one stored in db
+  if (!(await user.matchPassword(req.body.currentPassword))) {
+    return next(new ErrorResponse('Password is incorrect', 401))
+  }
+
+  user.password = req.body.newPassword;
+  await user.save();
 
   sendTokenResponse(user, 200, res)
 })
