@@ -4,7 +4,8 @@ const {
   login, 
   logout,
   getMe,
-  updatePassword
+  updatePassword,
+  updateDetails
 } = require('../controllers/auth')
 
 const {protect} = require('../middleware/auth')
@@ -17,5 +18,6 @@ router.post('/login', login)
 router.get("/logout", logout)
 router.get("/me", protect, getMe)
 router.put("/updatepassword", protect, updatePassword)
+router.put("/updatedetails", protect, updateDetails)
 
 module.exports = router;

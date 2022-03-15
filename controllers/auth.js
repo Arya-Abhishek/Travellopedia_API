@@ -92,6 +92,27 @@ exports.getMe = asyncHandler(async (req, res, next) => {
   });
 });
 
+// @desc      Update user details
+// @route     PUT /api/v1/auth/updatedetails
+// @access    Private
+exports.updateDetails = asyncHandler(async (req, res, next) => {
+  // will update only name and email of user details
+  const fieldsToUpdate = {
+    name: req.body.name,
+    email: req.body.email
+  }
+
+  const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
+    new: true, 
+    runValidators: true
+  })
+
+  return res.status(200).json({
+    success: true,
+    data: user
+  })
+})
+
 // Get the model and send the token back
 const sendTokenResponse = (user, statusCode, res) => {
   // Create token
