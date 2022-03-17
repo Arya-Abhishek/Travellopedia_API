@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "62333a645fda44b394cdbee7",
+		"name": "Admin Account",
+		"email": "admin@gmail.com",
+		"role": "user",
+		"password": "123456"
+	},
+  {
+    "_id": "62333a645fda44b394cdbee8",
+    "name": "John Doe",
+    "email": "john@gmail.com",
+    "role": "user",
+    "password":"123456"
+  },
+  {
+    "_id": "62333a645fda44b394cdbee9",
+    "name": "Jane Smith",
+    "email": "jane@gmail.com",
+    "role": "publisher",
+    "password": "123456"
+  }
+]

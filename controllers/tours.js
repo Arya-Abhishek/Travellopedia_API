@@ -13,7 +13,7 @@ exports.getTours = asyncHandler(async (req, res, next) => {
 
     // this request response, has not to be paginated, since this is the companies all tours and treks 
   } else {
-    tours = await Tour.find();
+    tours = await Tour.find().populate({path: 'company', select: 'name description'});
   }
 
   return res.status(200).json({

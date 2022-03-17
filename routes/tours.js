@@ -8,14 +8,16 @@ const {
   addTour
 } = require("../controllers/tours");
 
+const { protect, authorize } = require('../middleware/auth');
+
 const router = express.Router({mergeParams: true});
 
-router.route("/").get(getTours).post(addTour);
+router.route("/").get(getTours).post(protect, authorize('publisher', 'admin'), addTour);
 
 router // Force break
   .route("/:id")
   .get(getTour)
-  .put(updateTour)
-  .delete(deleteTour);
+  .put(protect, authorize('publisher', 'admin'), updateTour)
+  .delete(protect, authorize('publisher', 'admin'), deleteTour);
 
 module.exports = router;
