@@ -37,6 +37,16 @@ const TourSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  company: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Company',
+    required: true
+  },
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: false
   }
 })
 

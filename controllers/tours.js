@@ -3,12 +3,20 @@ const asyncHandler = require("../middleware/async");
 const Tour = require("../models/Tour");
 
 // @desc      Get tours
+// route      GET /api/v1/companies/:companyId/tours
 // @route     GET /api/v1/tours
 // @access    Public
 exports.getTours = asyncHandler(async (req, res, next) => {
-  const tours = await Tour.find({});
+  let tours;
+  if (req.params.companyId) {
+    tours = await Tour.find({company: req.params.companyId})
 
-  res.status(200).json({
+    // this request response, has not to be paginated, since this is the companies all tours and treks 
+  } else {
+    tours = await Tour.find();
+  }
+
+  return res.status(200).json({
     success: true,
     count: tours.length,
     data: tours

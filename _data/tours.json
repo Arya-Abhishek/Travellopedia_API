@@ -7,7 +7,8 @@
     "days": 5,
     "distance": 14,
     "cost": 2000,
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "company": "6214d834d16266366aa676cd"
   },
   {
     "_id": "6214ecd4d8e69893a789629c",
@@ -17,7 +18,8 @@
     "days": 2,
     "distance": 15,
     "cost": 1500,
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "company": "6214d834d16266366aa676cd"
   },
   {
     "_id": "6214ecd4d8e69893a789629d",
@@ -28,7 +30,8 @@
     "distance": 130,
     "cost": 36000,
     "difficulty": "Extreme",
-    "rewardCertificate": true
+    "rewardCertificate": true,
+    "company": "6214d834d16266366aa676ce"
   },
   {
     "_id": "6214ecd4d8e69893a789629e",
@@ -39,7 +42,8 @@
     "distance": 62,
     "cost": 27000,
     "difficulty": "Hard",
-    "rewardCertificate": true
+    "rewardCertificate": true,
+    "company": "6214d834d16266366aa676ce"
   },
   {
     "_id": "6214ecd4d8e69893a789629f",
@@ -49,7 +53,8 @@
     "days": 6,
     "distance": 20,
     "cost": 36000,
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "company": "6214d834d16266366aa676cf"
   },
   {
     "_id": "6214ecd4d8e69893a78962a0",
@@ -60,7 +65,8 @@
     "distance": 90,
     "cost": 15200,
     "difficulty": "Hard",
-    "rewardCertificate": true
+    "rewardCertificate": true,
+    "company": "6214d834d16266366aa676d0"
   },
   {
     "_id": "6214ecd4d8e69893a78962a1",
@@ -70,7 +76,8 @@
     "days": 7,
     "distance": 47,
     "cost": 8450,
-    "difficulty": "Moderate"
+    "difficulty": "Moderate",
+    "company": "6214d834d16266366aa676d0"
   },
   {
     "_id": "6214ecd4d8e69893a78962a2",
@@ -81,6 +88,7 @@
     "distance": 22,
     "cost": 6000,
     "difficulty": "Moderate",
-    "mobileNetworks": "BSNL works the best in these areas"
+    "mobileNetworks": "BSNL works the best in these areas",
+    "company": "6214d834d16266366aa676d0"
   }
 ]

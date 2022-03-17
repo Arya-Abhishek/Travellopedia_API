@@ -8,7 +8,7 @@ const {
   addTour
 } = require("../controllers/tours");
 
-const router = express.Router();
+const router = express.Router({mergeParams: true});
 
 router.route("/").get(getTours).post(addTour);
 
