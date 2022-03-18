@@ -11,16 +11,14 @@ exports.getTours = asyncHandler(async (req, res, next) => {
   if (req.params.companyId) {
     tours = await Tour.find({company: req.params.companyId})
 
-    // this request response, has not to be paginated, since this is the companies all tours and treks 
+    return res.status(200).json({
+      success: true,
+      count: tours.length,
+      data: tours
+    });
   } else {
-    tours = await Tour.find().populate({path: 'company', select: 'name description'});
-  }
-
-  return res.status(200).json({
-    success: true,
-    count: tours.length,
-    data: tours
-  });
+    return res.status(200).json(res.advancedResults)
+  }  
 });
 
 // @desc      Get single tours

@@ -8,71 +8,7 @@ const path = require('path')
 // @route     GET /api/v1/companies
 // @access    Public
 exports.getCompanies = asyncHandler(async (req, res, next) => {
-
-  const reqQuery = {...req.query}
-
-  const removeFields = ['select', 'limit', 'page'];
-
-  removeFields.forEach(param => delete reqQuery[param]);
-
-  let queryString = JSON.stringify(reqQuery)
-
-  const regex = /\b(gt|gte|lt|lte|in)\b/g;
-
-  queryString = queryString.replace(regex, match => `$${match}`)
-
-  // Get resource
-  let query = Company.find(JSON.parse(queryString))
-
-  // select fields
-  if (req.query.select) {
-    const fields = req.query.select.split(',').join(' ')
-    query = query.select(fields)
-  }
-
-  // sort 
-  if (req.query.sort) {
-    const sortBy = req.query.sort.split(',').join(' ');
-    query = query.sort(sortBy)
-  } else {
-    query = query.sort('-createdAt')
-  }
-
-  // Pagination
-  const page = parseInt(req.query.page, 10) || 1;
-  const limit = parseInt(req.query.limit, 10) || 10;
-  const startIndex = (page - 1) * limit;
-  const endIndex = page * limit;
-
-  const total = await Company.countDocuments();
-
-  query = query.skip(startIndex).limit(limit);
-
-  // Executing query
-  const companies = await query;
-
-  const pagination = {}
-
-  if (endIndex < total) {
-    pagination.next = {
-      page: page + 1,
-      limit
-    }
-  }
-
-  if (startIndex > 0) {
-    pagination.prev = {
-      page: page - 1,
-      limit
-    }
-  }
-
-  res.status(200).json({
-    success: true,
-    count: companies.length,
-    pagination,
-    data: companies
-  })
+  res.status(200).json(res.advancedResults);
 });
 
 // @desc      Get Single Company

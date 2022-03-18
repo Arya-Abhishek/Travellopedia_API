@@ -8,11 +8,20 @@ const {
   addTour
 } = require("../controllers/tours");
 
+const advancedResults = require('../middleware/advancedResults')
+const Tour = require('../models/Tour')
+
 const { protect, authorize } = require('../middleware/auth');
 
 const router = express.Router({mergeParams: true});
 
-router.route("/").get(getTours).post(protect, authorize('publisher', 'admin'), addTour);
+router
+  .route("/")
+  .get(
+    advancedResults(Tour, { path: "company", select: "name description" }),
+    getTours
+  )
+  .post(protect, authorize("publisher", "admin"), addTour);
 
 router // Force break
   .route("/:id")

@@ -10,11 +10,15 @@ const {
   companyPhotoUpload
 } = require('../controllers/companies')
 
+const advancedResults = require('../middleware/advancedResults')
+
 const router = express.Router();
 
 // you need to set mergeParams: true on the router,
 // if you want to access params from the parent router
 const tours = require('./tours');
+
+const Company = require('../models/Company')
 
 // you can nest routers by attaching them as middleware:
 router.use('/:companyId/tours', tours);
@@ -25,7 +29,7 @@ router.route('/:id/photo').put(companyPhotoUpload);
 
 router
   .route('/')
-  .get(getCompanies)
+  .get(advancedResults(Company), getCompanies)
   .post(addCompany);
 
 router
