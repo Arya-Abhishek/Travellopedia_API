@@ -31,7 +31,18 @@ exports.getCompany = asyncHandler(async (req, res, next) => {
 // @route     POST /api/v1/companies
 // @access    Private
 exports.addCompany = asyncHandler(async (req, res, next) => {
-  console.log(req.body)
+  req.body.user = req.user.id
+
+  const publishedCompany = await Company.findOne({user: req.user.id})
+  
+  if (publishedCompany && req.user.role !== 'admin') {
+    return next(
+      new ErrorResponse(
+        `The user with ID ${req.user.id} has already published a company try adding tours..`
+      )
+    )
+  }
+
   const company = await Company.create(req.body);
 
   res.status(200).json({
@@ -44,7 +55,24 @@ exports.addCompany = asyncHandler(async (req, res, next) => {
 // @route     PUT /api/v1/companies/:id
 // @access    Private
 exports.updateCompany = asyncHandler(async (req, res, next) => {
-  const company = await Company.findByIdAndUpdate(req.params.id, req.body, {
+  // Make sure to check the priveleges before manipulating the resource
+  let company = await Company.findById(req.params.id)
+
+  if (!company) {
+    return next(
+      new ErrorResponse(`Company Not found with the id of ${req.params.id}`, 404)
+    )
+  }
+
+  if (company.user.toString() !== req.user.id && req.user.role !== 'admin') {
+    return next(
+      new ErrorResponse(
+        `User ${req.user.id} is not authorized to update this company`, 401
+      )
+    )
+  }
+
+  company = await Company.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true
   });
@@ -59,7 +87,23 @@ exports.updateCompany = asyncHandler(async (req, res, next) => {
 // @route     DELETE /api/v1/companies/:id
 // @access    Private
 exports.deleteCompany = asyncHandler(async (req, res, next) => {
-  await Company.deleteOne({ "_id": req.params.id });
+  const company = await Company.findById(req.params.id);
+
+  if (!company) {
+    return next(
+      new ErrorResponse(`Company Not found with id of ${req.params.id}`, 404)
+    )
+  }
+
+  if (company.user.toString() !== req.user.id && req.user.role !== 'admin') {
+    return next(
+      new ErrorResponse(
+        `User ${req.user.id} is not authorize to delete this company`, 401
+      )
+    )
+  }
+
+  await company.remove();
 
   res.status(200).json({
     success: true,
