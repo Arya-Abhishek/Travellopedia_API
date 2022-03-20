@@ -156,14 +156,21 @@ exports.companyPhotoUpload = asyncHandler(async (req, res, next) => {
     )
   }
 
+  // Make sure company owner is uploading the photo
+  if (company.user.toString() !== req.user.id && req.user.role !== 'admin') {
+    return next(
+      new ErrorResponse(
+        `User ${req.user.id} is not authorize to upload photo for this company`, 401
+      )
+    )
+  }
+
   if (!req.files) {
     return next(new ErrorResponse(`Please upload a file`, 400))
   }
 
   //  Check the sent file is of image type
   const file = req.files.companyImage;
-
-  console.log(file);
 
   if(!file.mimetype.startsWith('image')) {
     return next(

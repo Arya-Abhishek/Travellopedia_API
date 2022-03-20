@@ -26,7 +26,7 @@ router.use('/:companyId/tours', toursRouter);
 
 router.route('/radius/:zipcode/:distance').get(getCompaniesWithinRadius);
 
-router.route('/:id/photo').put(companyPhotoUpload);
+router.route('/:id/photo').put(protect, authorize('admin', 'publisher'), companyPhotoUpload);
 
 router
   .route('/')
