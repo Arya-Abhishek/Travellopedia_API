@@ -50,4 +50,39 @@ const TourSchema = new mongoose.Schema({
   }
 })
 
+// Static method to get average of tours packages
+TourSchema.statics.getAverageCost = async function(companyId) {
+  // This works on whole collection, that's why using statics method
+
+  console.log('Calculating average cost...'.blue);
+
+  const obj = await this.aggregate([
+    {
+      $match: {company: companyId}
+    },
+    {
+      $group: {
+        _id: '$company',
+        averageCost: {$avg: '$cost'}
+      }
+    }
+  ])
+
+    try {
+    await this.model('Company').findByIdAndUpdate(companyId, {
+      averageCost: Math.ceil(obj[0].averageCost / 10) * 10
+    });
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+TourSchema.post('save', function() {
+  this.constructor.getAverageCost(this.company)
+})
+
+TourSchema.pre('remove', function() {
+  this.constructor.getAverageCost(this.company)
+})
+
 module.exports = mongoose.model('Tour', TourSchema)

@@ -7,8 +7,7 @@
         "website": "https://hike-adventures-india.com",
         "phone": "+91 9222057941",
         "email": "adventures@hikeindia.com",
-        "address": "VPO Bhawarna, Tehsil, Bhawarna, Himachal Pradesh 176083",
-        "averageCost": 8000
+        "address": "VPO Bhawarna, Tehsil, Bhawarna, Himachal Pradesh 176083"
     },
     {
         "_id": "6214d834d16266366aa676ce",
@@ -18,8 +17,7 @@
         "website": "https://himalayan-treks.com",
         "phone": "+91 8230936901",
         "email": "treks@himalayan.com",
-        "address": "VPO.Kareri, Dharamshala, Himachal Pradesh 176216",
-        "averageCost": 18000
+        "address": "VPO.Kareri, Dharamshala, Himachal Pradesh 176216"
     },
     {
         "_id": "6214d834d16266366aa676cf",
@@ -29,8 +27,7 @@
         "website": "https://mountain-adventures-india.com",
         "phone": "+91 7222857842",
         "email": "booktrek@mountainadventures.com",
-        "address": "Head office,Village Swala,Post office Naganpatt,Tehsil Dharamshala, Distt, Kangra, Himachal Pradesh 176209",
-        "averageCost": 20000
+        "address": "Head office,Village Swala,Post office Naganpatt,Tehsil Dharamshala, Distt, Kangra, Himachal Pradesh 176209"
     },
     {
         "_id": "6214d834d16266366aa676d0",
@@ -40,8 +37,7 @@
         "website": "https://dreamchaser-tour-trek.com",
         "phone": "+91 9736057941",
         "email": "adventures@dreamchaser.com",
-        "address": "C29A, Dwarka Mor, Block C, Vipin Garden, Nawada, New Delhi, Delhi 110059",
-        "averageCost": 1000
+        "address": "C29A, Dwarka Mor, Block C, Vipin Garden, Nawada, New Delhi, Delhi 110059"
     },
     {
         "_id": "6214d834d16266366aa676d1",
@@ -51,7 +47,6 @@
         "website": "https://triund-treks-tour.com",
         "phone": "+91 6228957873",
         "email": "trek@triund.com",
-        "address": "Sector 10A Rd, near kadipur chowk, IOC Colony, Sector 10A, Gurugram, Haryana 122001",
-        "averageCost": 2000
+        "address": "Sector 10A Rd, near kadipur chowk, IOC Colony, Sector 10A, Gurugram, Haryana 122001"
     }
 ]

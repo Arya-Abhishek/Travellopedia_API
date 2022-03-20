@@ -1,4 +1,5 @@
 const Company = require('../models/Company')
+const Tour = require('../models/Tour')
 const ErrorResponse = require('../utils/errorResponse')
 const asyncHandler = require('../middleware/async')
 const geocoder = require('../utils/geocode')
@@ -103,6 +104,8 @@ exports.deleteCompany = asyncHandler(async (req, res, next) => {
     )
   }
 
+  // Cascade delete all the tours and trek packages of this company
+  await Tour.deleteMany({company: req.params.id})
   await company.remove();
 
   res.status(200).json({
